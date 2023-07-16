@@ -2,16 +2,21 @@ const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const book = document.querySelector("#book");
 
-const page1 = document.querySelector("#p1");
-const page2 = document.querySelector("#p2");
-const page3 = document.querySelector("#p3");
-
 prevButton.addEventListener("click", GoPrevPage);
 nextButton.addEventListener("click", GoNextPage);
 
+const elementsInPageClass = document.querySelectorAll('.page');
+const numOfPages = elementsInPageClass.length;
 let currentLocation = 1;
-let numOfPages = 3;
-let maxLocation = numOfPages + 1;
+const maxLocation = numOfPages + 1;
+
+let pages = [];
+let page;
+
+for (let i = 1; i <= numOfPages; i++) {
+    page = document.querySelector("#p" + i);
+    pages.push(page);
+}
 
 function OpenBook() {
     book.style.transform = "translateX(50%)";
@@ -20,10 +25,10 @@ function OpenBook() {
 }
 
 function CloseBook(atBeginning) {
-    if(atBeginning){
+    if (atBeginning) {
         book.style.transform = "translateX(0%)";
     }
-    else{
+    else {
         book.style.transform = "translateX(100%)";
     }
     prevButton.style.transform = "translateX(0px)";
@@ -32,47 +37,39 @@ function CloseBook(atBeginning) {
 
 function GoNextPage() {
     if (currentLocation < maxLocation) {
-        switch (currentLocation) {
-            case 1:
+            if(currentLocation == 1){
                 OpenBook();
-                page1.classList.add("flipped");
-                page1.style.zIndex = 1;
-                break;
-            case 2:
-                page2.classList.add("flipped");
-                page2.style.zIndex = 2;
-                break;
-            case 3:
-                page3.classList.add("flipped");
-                page3.style.zIndex = 3;
+                pages[currentLocation - 1].classList.add("flipped");
+                pages[currentLocation - 1].style.zIndex = currentLocation;
+            }
+            else if(currentLocation < numOfPages){
+                pages[currentLocation - 1].classList.add("flipped");
+                pages[currentLocation - 1].style.zIndex = currentLocation;
+            }
+            else{
+                pages[numOfPages - 1].classList.add("flipped");
+                pages[numOfPages - 1].style.zIndex = numOfPages;
                 CloseBook();
-                break;
-            default:
-                throw new Error("unkown state");
-        }
-        currentLocation++;
+            }
+            currentLocation++;
     }
 }
 
 function GoPrevPage() {
-    if(currentLocation > 1){
-        switch(currentLocation){
-            case 2:
-                CloseBook(true);
-                page1.classList.remove("flipped");
-                page1.style.zIndex = 3;
-                break;
-            case 3:
-                page2.classList.remove("flipped");
-                page2.style.zIndex = 2;
-                break;
-            case 4:
-                OpenBook();
-                page3.classList.remove("flipped");
-                page3.style.zIndex = 1;
-                break;
-            default:
-                throw new Error("unkown state");
+    if (currentLocation > 1) {
+        if(currentLocation == 2){
+            CloseBook(true);
+            pages[currentLocation - 2].classList.remove("flipped");
+            pages[currentLocation - 2].style.zIndex = numOfPages;
+        }
+        else if(currentLocation <= numOfPages){
+            pages[currentLocation - 2].classList.remove("flipped");
+            pages[currentLocation - 2].style.zIndex = currentLocation - 1;
+        }
+        else{
+            OpenBook();
+            pages[numOfPages - 1].classList.remove("flipped");
+            pages[numOfPages - 1].style.zIndex = 1;
         }
         currentLocation--;
     }
