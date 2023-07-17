@@ -57,14 +57,24 @@ function GoNextPage() {
 
 function GoPrevPage() {
     if (currentLocation > 1) {
+
+        let zIndex;
+        let j = numOfPages;
+        for(let i = 2; i <+ numOfPages + 1; i++){
+            if(i == currentLocation){
+                zIndex = j;
+            }
+            j--;
+        }
+
         if(currentLocation == 2){
             CloseBook(true);
             pages[currentLocation - 2].classList.remove("flipped");
-            pages[currentLocation - 2].style.zIndex = numOfPages;
+            pages[currentLocation - 2].style.zIndex = zIndex;
         }
         else if(currentLocation <= numOfPages){
             pages[currentLocation - 2].classList.remove("flipped");
-            pages[currentLocation - 2].style.zIndex = currentLocation - 1;
+            pages[currentLocation - 2].style.zIndex = zIndex;
         }
         else{
             OpenBook();
