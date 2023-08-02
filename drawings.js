@@ -20,8 +20,8 @@ for (let i = 1; i <= numOfPages; i++) {
 
 function OpenBook() {
     book.style.transform = "translateX(50%)";
-    prevButton.style.transform = "translateX(-180px)";
-    nextButton.style.transform = "translateX(180px)";
+    prevButton.style.transform = "translateX(-280px)";
+    nextButton.style.transform = "translateX(280px)";
 }
 
 function CloseBook(atBeginning) {
@@ -31,8 +31,8 @@ function CloseBook(atBeginning) {
     else {
         book.style.transform = "translateX(100%)";
     }
-    prevButton.style.transform = "translateX(0px)";
-    nextButton.style.transform = "translateX(0px)";
+    prevButton.style.transform = "translateX(-30px)";
+    nextButton.style.transform = "translateX(30px)";
 }
 
 function GoNextPage() {
