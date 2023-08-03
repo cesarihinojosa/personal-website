@@ -1,21 +1,34 @@
 const prevButton = document.querySelector("#prev");
 const nextButton = document.querySelector("#next");
 const book = document.querySelector("#book");
-
-prevButton.addEventListener("click", GoPrevPage);
-nextButton.addEventListener("click", GoNextPage);
-
 const elementsInPageClass = document.querySelectorAll('.page');
 const numOfPages = elementsInPageClass.length;
 let currentLocation = 1;
 const maxLocation = numOfPages + 1;
-
+let positionZ;
 let pages = [];
 let page;
 
-for (let i = 1; i <= numOfPages; i++) {
-    page = document.querySelector("#p" + i);
-    pages.push(page);
+prevButton.addEventListener("click", GoPrevPage);
+nextButton.addEventListener("click", GoNextPage);
+
+AssignPagesToArray();
+
+SetPositionZ();
+
+function AssignPagesToArray(){
+    for (let i = 1; i <= numOfPages; i++) {
+        page = document.querySelector("#p" + i);
+        pages.push(page);
+    }
+}
+
+function SetPositionZ(){
+    let j = numOfPages;
+    for(let i = 1; i <= numOfPages; i++){
+        pages[i - 1].style.zIndex = j;
+        j--;
+    }
 }
 
 function OpenBook() {
