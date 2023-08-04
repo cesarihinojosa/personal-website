@@ -18,16 +18,16 @@ AssignPagesToArray();
 
 SetPositionZ();
 
-function AssignPagesToArray(){
+function AssignPagesToArray() {
     for (let i = 1; i <= numOfPages; i++) {
         page = document.querySelector("#p" + i);
         pages.push(page);
     }
 }
 
-function SetPositionZ(){
+function SetPositionZ() {
     let j = numOfPages;
-    for(let i = 1; i <= numOfPages; i++){
+    for (let i = 1; i <= numOfPages; i++) {
         pages[i - 1].style.zIndex = j;
         j--;
     }
@@ -52,21 +52,23 @@ function CloseBook(atBeginning) {
 
 function GoNextPage() {
     if (currentLocation < maxLocation) {
-            if(currentLocation == 1){
-                OpenBook();
-                pages[currentLocation - 1].classList.add("flipped");
-                pages[currentLocation - 1].style.zIndex = currentLocation;
-            }
-            else if(currentLocation < numOfPages){
-                pages[currentLocation - 1].classList.add("flipped");
-                pages[currentLocation - 1].style.zIndex = currentLocation;
-            }
-            else{
-                pages[numOfPages - 1].classList.add("flipped");
-                pages[numOfPages - 1].style.zIndex = numOfPages;
-                CloseBook();
-            }
-            currentLocation++;
+        if (currentLocation == 1) {
+            OpenBook();
+            pages[currentLocation - 1].classList.add("flipped");
+            pages[currentLocation - 1].style.zIndex = currentLocation;
+        }
+        else if (currentLocation < numOfPages) {
+            pages[currentLocation - 1].classList.add("flipped");
+            pages[currentLocation - 1].style.zIndex = currentLocation;
+        }
+        else if(currentLocation == numOfPages){
+            pages[numOfPages - 1].classList.add("flipped");
+            pages[numOfPages - 1].style.zIndex = numOfPages;
+            CloseBook();
+        }
+        else{
+        }
+        currentLocation++;
     }
 }
 
@@ -75,23 +77,23 @@ function GoPrevPage() {
 
         let zIndex;
         let j = numOfPages;
-        for(let i = 2; i <+ numOfPages + 1; i++){
-            if(i == currentLocation){
+        for (let i = 2; i < + numOfPages + 1; i++) {
+            if (i == currentLocation) {
                 zIndex = j;
             }
             j--;
         }
 
-        if(currentLocation == 2){
+        if (currentLocation == 2) {
             CloseBook(true);
             pages[currentLocation - 2].classList.remove("flipped");
             pages[currentLocation - 2].style.zIndex = zIndex;
         }
-        else if(currentLocation <= numOfPages){
+        else if (currentLocation <= numOfPages) {
             pages[currentLocation - 2].classList.remove("flipped");
             pages[currentLocation - 2].style.zIndex = zIndex;
         }
-        else{
+        else {
             OpenBook();
             pages[numOfPages - 1].classList.remove("flipped");
             pages[numOfPages - 1].style.zIndex = 1;
