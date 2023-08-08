@@ -149,6 +149,12 @@ body {
     font-family: Montserrat, sans-serif;
 }
 
+/* #links div a{
+    display:block;
+    width: 1px;
+    height: 1px;
+} */
+
 #links{
     display: flex;
     justify-content:center;
@@ -158,12 +164,6 @@ body {
 #links div{
     margin-top: 10vh;
     margin-left: 20px;
-}
-
-.links div a{
-    display:inline-block;
-    width: 1px;
-    height: 1px;
 }
 
 .links img{
