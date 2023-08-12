@@ -8,9 +8,13 @@ const maxLocation = numOfPages + 1;
 let positionZ;
 let pages = [];
 let page;
+let highIndexZ = 15;
+let lowIndexZ = 0;
 
 prevButton.addEventListener("click", GoPrevPage);
 nextButton.addEventListener("click", GoNextPage);
+
+//prevButton.addEventListener("mouseover", SetHighIndexZ);
 
 //inside develop
 
@@ -52,16 +56,19 @@ function CloseBook(atBeginning) {
 
 function GoNextPage() {
     if (currentLocation < maxLocation) {
+
         if (currentLocation == 1) {
             OpenBook();
             pages[currentLocation - 1].classList.add("flipped");
             pages[currentLocation - 1].style.zIndex = currentLocation;
         }
         else if (currentLocation < numOfPages) {
+            pages[currentLocation - 2].style.zIndex = currentLocation - 1;
             pages[currentLocation - 1].classList.add("flipped");
             pages[currentLocation - 1].style.zIndex = currentLocation;
         }
         else if(currentLocation == numOfPages){
+            pages[currentLocation - 2].style.zIndex = currentLocation - 1;
             pages[numOfPages - 1].classList.add("flipped");
             pages[numOfPages - 1].style.zIndex = numOfPages;
             CloseBook();
