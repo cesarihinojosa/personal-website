@@ -60,17 +60,17 @@ function GoNextPage() {
         if (currentLocation == 1) {
             OpenBook();
             pages[currentLocation - 1].classList.add("flipped");
-            pages[currentLocation - 1].style.zIndex = currentLocation;
+            pages[currentLocation - 1].style.zIndex = highIndexZ;
         }
         else if (currentLocation < numOfPages) {
             pages[currentLocation - 2].style.zIndex = currentLocation - 1;
             pages[currentLocation - 1].classList.add("flipped");
-            pages[currentLocation - 1].style.zIndex = currentLocation;
+            pages[currentLocation - 1].style.zIndex = highIndexZ;
         }
         else if(currentLocation == numOfPages){
             pages[currentLocation - 2].style.zIndex = currentLocation - 1;
             pages[numOfPages - 1].classList.add("flipped");
-            pages[numOfPages - 1].style.zIndex = numOfPages;
+            pages[numOfPages - 1].style.zIndex = highIndexZ;
             CloseBook();
         }
         else{
