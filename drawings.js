@@ -14,9 +14,12 @@ let lowIndexZ = 0;
 prevButton.addEventListener("click", GoPrevPage);
 nextButton.addEventListener("click", GoNextPage);
 
+
 //prevButton.addEventListener("mouseover", SetHighIndexZ);
 
 //inside develop
+
+SetButtonsPosition();
 
 AssignPagesToArray();
 
@@ -35,6 +38,11 @@ function SetPositionZ() {
         pages[i - 1].style.zIndex = j;
         j--;
     }
+}
+
+function SetButtonsPosition(){
+    prevButton.style.transform = "translateX(-30px)";
+    nextButton.style.transform = "translateX(30px)";    
 }
 
 function OpenBook() {
