@@ -14,7 +14,6 @@ let lowIndexZ = 0;
 prevButton.addEventListener("click", GoPrevPage);
 nextButton.addEventListener("click", GoNextPage);
 
-
 //prevButton.addEventListener("mouseover", SetHighIndexZ);
 
 //inside develop

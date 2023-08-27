@@ -142,6 +142,8 @@ body {
     align-items: center;
 }
 
+
+
 .text{
     width: 15vw;
     font-size: 25px;
@@ -224,7 +226,7 @@ body {
 }
 
 .page img {
-    width: 90%;
+    width: 27vw;
     border-radius: 1%;
 }
 
@@ -239,4 +241,5 @@ button {
     border-radius: 50%;
     transition: transform 0.5s;
 }
+
 
