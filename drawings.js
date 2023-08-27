@@ -47,8 +47,8 @@ function SetButtonsPosition(){
 
 function OpenBook() {
     book.style.transform = "translateX(50%)";
-    prevButton.style.transform = "translateX(-280px)";
-    nextButton.style.transform = "translateX(280px)";
+    prevButton.style.transform = "translateX(-270px)";
+    nextButton.style.transform = "translateX(270px)";
 }
 
 function CloseBook(atBeginning) {

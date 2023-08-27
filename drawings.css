@@ -142,6 +142,16 @@ body {
     align-items: center;
 }
 
+.text{
+    width: 15vw;
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 7.5vh;
+    right: 2vw;
+    font-family: Montserrat, sans-serif;
+}
+
 .book {
     position: relative;
     width: 30vw;
@@ -169,6 +179,15 @@ body {
     transform-origin: left;
     transition: transform 0.5s;
     border-radius: 1%;
+}
+
+.link img{
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
 }
 
 .front {
