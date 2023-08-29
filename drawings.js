@@ -1,5 +1,4 @@
-const prevButton = document.querySelector("#prev");
-const nextButton = document.querySelector("#next");
+
 const book = document.querySelector("#book");
 const elementsInPageClass = document.querySelectorAll('.page');
 const numOfPages = elementsInPageClass.length;
@@ -11,14 +10,17 @@ let page;
 let highIndexZ = 15;
 let lowIndexZ = 0;
 
-prevButton.addEventListener("click", GoPrevPage);
-nextButton.addEventListener("click", GoNextPage);
+document.addEventListener('keydown', e => {
+    if(e.code == "ArrowLeft"){
+        GoPrevPage();
+    }
+})
 
-//prevButton.addEventListener("mouseover", SetHighIndexZ);
-
-//inside develop
-
-SetButtonsPosition();
+document.addEventListener('keydown', e => {
+    if(e.code == "ArrowRight"){
+        GoNextPage();
+    }
+})
 
 AssignPagesToArray();
 
@@ -39,15 +41,9 @@ function SetPositionZ() {
     }
 }
 
-function SetButtonsPosition(){
-    prevButton.style.transform = "translateX(-30px)";
-    nextButton.style.transform = "translateX(30px)";    
-}
 
 function OpenBook() {
     book.style.transform = "translateX(50%)";
-    prevButton.style.transform = "translateX(-270px)";
-    nextButton.style.transform = "translateX(270px)";
 }
 
 function CloseBook(atBeginning) {
@@ -57,8 +53,6 @@ function CloseBook(atBeginning) {
     else {
         book.style.transform = "translateX(100%)";
     }
-    prevButton.style.transform = "translateX(-30px)";
-    nextButton.style.transform = "translateX(30px)";
 }
 
 function GoNextPage() {
