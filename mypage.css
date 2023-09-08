@@ -139,6 +139,12 @@ body {
     flex-direction: row;
 }
 
+.text h3{
+    font-size: 15px;
+    position: absolute;
+    bottom: 3vh; 
+}
+
 .text{
     font-size: 25px;
     color: white;
@@ -148,12 +154,6 @@ body {
     margin-top: 30vh;
     font-family: Montserrat, sans-serif;
 }
-
-/* #links div a{
-    display:block;
-    width: 1px;
-    height: 1px;
-} */
 
 #links{
     display: flex;
@@ -172,9 +172,28 @@ body {
     border-radius: 50%;
 }
 
-.text h3{
-    font-size: 15px;
-    margin-top: 6vh;
+@media (max-width: 420px) {
+
+    .text{
+        font-size: 25px;
+        color: white;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center; 
+        font-family: Montserrat, sans-serif;
+    }
+    
+
+    #links{
+        display: flex;
+        flex-direction: column;
+    }
+    #links div{
+        margin-top: 1vh;
+        margin-left: 20px;
+    }
+    
+
 }
 
 /*  space stuff */

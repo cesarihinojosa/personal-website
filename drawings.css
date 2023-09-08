@@ -328,7 +328,7 @@ button {
 
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
 
     body{
         transform: rotate(90deg);
