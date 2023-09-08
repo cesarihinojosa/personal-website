@@ -9,6 +9,7 @@ let pages = [];
 let page;
 let highIndexZ = 15;
 let lowIndexZ = 0;
+let goingRight = true;
 
 document.addEventListener('keydown', e => {
     if(e.code == "ArrowLeft"){
@@ -21,6 +22,8 @@ document.addEventListener('keydown', e => {
         GoNextPage();
     }
 })
+
+document.addEventListener('touchstart', touched);
 
 AssignPagesToArray();
 
@@ -40,6 +43,22 @@ function SetPositionZ() {
         j--;
     }
 }
+
+function touched(){
+    if(goingRight){
+        GoNextPage();
+        if(currentLocation >= numOfPages + 1){
+            goingRight = false;
+        }
+    }
+    else{//goingLeft
+        GoPrevPage();
+        if(currentLocation <= 1){
+            goingRight = true;
+        }
+    }
+}
+
 
 
 function OpenBook() {
@@ -78,6 +97,7 @@ function GoNextPage() {
         }
         currentLocation++;
     }
+    console.log(numOfPages);
 }
 
 function GoPrevPage() {

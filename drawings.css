@@ -287,3 +287,62 @@ button {
 
 /* x1.25 */
 
+/* x0.60 */
+
+@media (max-width: 1090px) {
+
+    .text {
+        font-size: 14px;
+    }
+
+    .book {
+        width: 216px;
+        height: 288px;
+    }
+
+    .page {
+        width: 216px;
+        height: 288px;
+    }
+
+    .front,
+    .back {
+        width: 216px;
+        height: 288px;
+    }
+
+    .link img {
+        height: 21px;
+        width: 21px;
+    }
+
+    .front-content,
+    .back-content {
+        width: 216px;
+        height: 288px;;
+    }
+
+    .page img {
+        width: 199px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    body{
+        transform: rotate(90deg);
+    }
+
+    .link img {
+        display:none
+    }
+    
+    .text {
+        display:none
+    }
+
+}
+
+/* x0.60 */
+
