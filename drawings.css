@@ -134,6 +134,8 @@ table {
     border-spacing: 0;
 }
 
+/* BASE */
+
 body {
     background-color: #202125;
     height: 100vh;
@@ -142,27 +144,27 @@ body {
     align-items: center;
 }
 
-.text{
+.text {
     width: 15vw;
-    font-size: 25px;
+    font-size: 22px;
     color: white;
     position: absolute;
     top: 7.5vh;
-    right: 2vw;
+    right: 1.5vw;
     font-family: Montserrat, sans-serif;
 }
 
 .book {
     position: relative;
-    width: 30vw;
-    height: 85vh;
+    width: 360px;
+    height: 480px;
     transition: transform 0.5s;
 }
 
 .page {
     position: absolute;
-    width: 30vw;
-    height: 85vh;
+    width: 360px;
+    height: 480px;
     top: 0;
     left: 0;
     perspective: 1500px;
@@ -172,8 +174,8 @@ body {
 .back {
     background-color: white;
     position: absolute;
-    width: 30vw;
-    height: 85vh;
+    width: 360px;
+    height: 480px;
     top: 0;
     left: 0;
     transform-origin: left;
@@ -181,7 +183,7 @@ body {
     border-radius: 1%;
 }
 
-.link img{
+.link img {
     position: absolute;
     top: 3vh;
     left: 2vw;
@@ -202,8 +204,8 @@ body {
 
 .front-content,
 .back-content {
-    width: 30vw;
-    height: 85vh;
+    width: 360px;
+    height: 480px;
     display: flex;
     justify-content: center;
     align-items: center
@@ -224,7 +226,7 @@ body {
 }
 
 .page img {
-    width: 90%;
+    width: 331px;
     border-radius: 1%;
 }
 
@@ -239,4 +241,108 @@ button {
     border-radius: 50%;
     transition: transform 0.5s;
 }
+
+/* BASE */
+
+/* x1.25 */
+
+@media (min-width: 1600px) {
+
+    .text {
+        font-size: 31px;
+    }
+
+    .book {
+        width: 450px;
+        height: 600px;
+    }
+
+    .page {
+        width: 450px;
+        height: 600px;
+    }
+
+    .front,
+    .back {
+        width: 450px;
+        height: 600px;
+    }
+
+    .link img {
+        height: 43px;
+        width: 43px;
+    }
+
+    .front-content,
+    .back-content {
+        width: 450px;
+        height: 600px;
+    }
+
+    .page img {
+        width: 414px;
+    }
+
+}
+
+/* x1.25 */
+
+/* x0.60 */
+
+@media (max-width: 1090px) {
+
+    .text {
+        font-size: 14px;
+    }
+
+    .book {
+        width: 216px;
+        height: 288px;
+    }
+
+    .page {
+        width: 216px;
+        height: 288px;
+    }
+
+    .front,
+    .back {
+        width: 216px;
+        height: 288px;
+    }
+
+    .link img {
+        height: 21px;
+        width: 21px;
+    }
+
+    .front-content,
+    .back-content {
+        width: 216px;
+        height: 288px;;
+    }
+
+    .page img {
+        width: 199px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    body{
+        transform: rotate(90deg);
+    }
+
+    .link img {
+        display:none
+    }
+    
+    .text {
+        display:none
+    }
+
+}
+
+/* x0.60 */
 

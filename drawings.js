@@ -1,5 +1,4 @@
-const prevButton = document.querySelector("#prev");
-const nextButton = document.querySelector("#next");
+
 const book = document.querySelector("#book");
 const elementsInPageClass = document.querySelectorAll('.page');
 const numOfPages = elementsInPageClass.length;
@@ -10,16 +9,21 @@ let pages = [];
 let page;
 let highIndexZ = 15;
 let lowIndexZ = 0;
+let goingRight = true;
 
-prevButton.addEventListener("click", GoPrevPage);
-nextButton.addEventListener("click", GoNextPage);
+document.addEventListener('keydown', e => {
+    if(e.code == "ArrowLeft"){
+        GoPrevPage();
+    }
+})
 
+document.addEventListener('keydown', e => {
+    if(e.code == "ArrowRight"){
+        GoNextPage();
+    }
+})
 
-//prevButton.addEventListener("mouseover", SetHighIndexZ);
-
-//inside develop
-
-SetButtonsPosition();
+document.addEventListener('touchstart', touched);
 
 AssignPagesToArray();
 
@@ -40,15 +44,25 @@ function SetPositionZ() {
     }
 }
 
-function SetButtonsPosition(){
-    prevButton.style.transform = "translateX(-30px)";
-    nextButton.style.transform = "translateX(30px)";    
+function touched(){
+    if(goingRight){
+        GoNextPage();
+        if(currentLocation >= numOfPages + 1){
+            goingRight = false;
+        }
+    }
+    else{//goingLeft
+        GoPrevPage();
+        if(currentLocation <= 1){
+            goingRight = true;
+        }
+    }
 }
+
+
 
 function OpenBook() {
     book.style.transform = "translateX(50%)";
-    prevButton.style.transform = "translateX(-270px)";
-    nextButton.style.transform = "translateX(270px)";
 }
 
 function CloseBook(atBeginning) {
@@ -58,8 +72,6 @@ function CloseBook(atBeginning) {
     else {
         book.style.transform = "translateX(100%)";
     }
-    prevButton.style.transform = "translateX(-30px)";
-    nextButton.style.transform = "translateX(30px)";
 }
 
 function GoNextPage() {
@@ -85,6 +97,7 @@ function GoNextPage() {
         }
         currentLocation++;
     }
+    console.log(numOfPages);
 }
 
 function GoPrevPage() {
