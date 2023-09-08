@@ -174,23 +174,34 @@ body {
 
 @media (max-width: 420px) {
 
+    body {
+        display: block;
+    }
+
     .text{
         font-size: 25px;
         color: white;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center; 
+        position: absolute;
+        margin-top: 5vh;
         font-family: Montserrat, sans-serif;
     }
     
 
     #links{
+        margin-top: 20vh;
         display: flex;
         flex-direction: column;
     }
     #links div{
         margin-top: 1vh;
-        margin-left: 20px;
+        margin-left: 25px;
+    }
+
+    .text h3{
+        font-size: 15px;
+        position: absolute;
+        left: 25vw;
+        bottom: 0.5vh; 
     }
     
 
