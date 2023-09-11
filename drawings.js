@@ -2,6 +2,7 @@
 const book = document.querySelector("#book");
 const elementsInPageClass = document.querySelectorAll('.page');
 const numOfPages = elementsInPageClass.length;
+const hint = document.getElementById("hint");
 let currentLocation = 1;
 const maxLocation = numOfPages + 1;
 let positionZ;
@@ -19,6 +20,7 @@ document.addEventListener('keydown', e => {
 
 document.addEventListener('keydown', e => {
     if(e.code == "ArrowRight"){
+        hint.style.display = "none";
         GoNextPage();
     }
 })
