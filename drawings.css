@@ -242,6 +242,16 @@ button {
     transition: transform 0.5s;
 }
 
+#hint{
+    font-family: Montserrat, sans-serif;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 20px;
+}
+
+
+
 /* BASE */
 
 /* x1.25 */
@@ -281,6 +291,10 @@ button {
 
     .page img {
         width: 414px;
+    }
+
+    #hint{
+        font-size: 18px;
     }
 
 }
@@ -324,6 +338,10 @@ button {
 
     .page img {
         width: 199px;
+    }
+
+    #hint{
+        font-size: 9px;
     }
 
 }
